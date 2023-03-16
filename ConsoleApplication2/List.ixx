@@ -8,11 +8,15 @@ export class List {
 private:
 	shared_ptr<Node> head;
 	shared_ptr<Node> tail;
-	int length;
+	int list_length;
 public:
+	List();
 	List(int value);
 	void append(int value);
 	void prepend(int value);
 	void insert(int inedx, int value);
 	void print() const;
+	int length() const;
+	int get_head() const;
+	int get_tail() const;
 };
