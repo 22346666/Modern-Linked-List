@@ -1,4 +1,4 @@
-module Node_src;
+export module Node_src;
 
 import Node;
 
