@@ -56,31 +56,6 @@ void List::print() const
 	cout << endl;
 }
 
-void List::delete_last()
-{
-	if (list_length == 0) {
-		return;
-	}
-	else
-	{
-		shared_ptr<Node> temp = head;
-		shared_ptr<Node> prev = head;
-		while (temp->next_node) {
-			prev = temp;
-			temp = temp->next_node;
-		}
-		tail = prev;
-		tail->next_node = nullptr;
-		list_length--;
-		if (list_length == 0) {
-			head = nullptr;
-			tail = nullptr;
-		}
-		//cout << temp.use_count() << endl;
-		temp.reset();
-	}
-}
-
 int List::length() const
 {
 	return this->list_length;

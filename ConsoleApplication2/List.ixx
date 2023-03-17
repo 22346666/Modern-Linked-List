@@ -16,7 +16,6 @@ public:
 	void prepend(int value);
 	void insert(int inedx, int value);
 	void print() const;
-	void delete_last();
 	int length() const;
 	int get_head() const;
 	int get_tail() const;

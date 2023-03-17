@@ -10,5 +10,4 @@ public:
 	int value;
 	shared_ptr<Node> next_node;
 	Node(int passed_value);
-	~Node();
 };
