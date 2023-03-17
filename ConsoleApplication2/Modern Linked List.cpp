@@ -4,14 +4,23 @@ using namespace std;
 
 int main()
 {
-	//List new_list(200);
+	
 	List some_list;
 	for (int i{}; i < 5; i++) {
 		some_list.append(i+5);
 	}
 	some_list.print();
-	//new_list.print();
-	//cout << new_list.length() <<" " << new_list.get_head() << " " << new_list.get_tail() << endl;
+	const int ind = 4;
+	Node* pointer = some_list.get_node(ind);
+	cout << "Value at index "<< ind <<" " << pointer->value << endl;
+	for (int i{}; i < 5; i++) {
+		some_list.set_value(i, 0);
+	}
+	some_list.print();
+	for (int i{}; i < 5; i++) {
+		some_list.delete_first();
+		some_list.print();
+	}
 	return 0;
 }
 

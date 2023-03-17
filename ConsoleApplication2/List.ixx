@@ -16,7 +16,11 @@ public:
 	void prepend(int value);
 	void insert(int inedx, int value);
 	void print() const;
+	void delete_last();
+	void delete_first();
 	int length() const;
 	int get_head() const;
 	int get_tail() const;
+	Node* get_node(int index);
+	void set_value(int index, int value);
 };
