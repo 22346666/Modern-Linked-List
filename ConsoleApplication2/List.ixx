@@ -18,9 +18,11 @@ public:
 	void print() const;
 	void delete_last();
 	void delete_first();
+	void delete_node(int index);
 	int length() const;
 	int get_head() const;
 	int get_tail() const;
 	Node* get_node(int index);
 	void set_value(int index, int value);
+	void reverse();
 };

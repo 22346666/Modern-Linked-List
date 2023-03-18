@@ -50,9 +50,28 @@ void List::prepend(int value)
 	}
 }
 
-void List::insert(int inedx, int value)
+void List::insert(int index, int value)
 {
-
+	if (index < 0 || index >= list_length) {
+		return;
+	}
+	else if (index == 0)
+	{
+		prepend(value);
+		
+	}
+	else if (index == list_length - 1) {
+		append(value);
+		
+	}
+	else {
+		auto node = make_shared<Node>(value);
+		auto temp = get_node(index - 1);
+		node->next_node=temp->next_node;
+		temp->next_node = node;
+		list_length++;
+	}
+	
 }
 
 void List::print() const
@@ -107,6 +126,25 @@ void List::delete_first() {
 	list_length--;
 }
 
+void List::delete_node(int index)
+{
+	if (index < 0 || index >= list_length) {
+		return;
+	}
+	else if (index == 0) {
+		return delete_first();
+	}
+	else if (index == list_length - 1) {
+		return delete_last();
+	}
+	else {
+		auto prev = get_node(index - 1);
+		auto temp = prev->next_node;
+		prev->next_node = temp->next_node;
+		list_length--;
+	}
+}
+
 int List::length() const
 {
 	return this->list_length;
@@ -139,5 +177,20 @@ void List::set_value(int index, int value)
 	auto temp = get_node(index);
 	if (temp) {
 		temp->value = value;
+	}
+}
+
+void List::reverse()
+{
+	auto temp = head;
+	head = tail;
+	tail = temp;
+	auto after = temp->next_node;
+	shared_ptr<Node> before = nullptr;
+	for (int i{}; i < list_length; i++) {
+		after = temp->next_node;
+		temp->next_node = before;
+		before = temp;
+		temp = after;
 	}
 }
